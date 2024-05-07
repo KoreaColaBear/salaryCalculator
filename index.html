@@ -11,10 +11,6 @@
                 border: 1px solid white;
                 border-collapse: collapse;
             }
-            th,
-            td {
-                /* background-color: #96d4d4; */
-            }
             #app {
                 width: 100vw;
                 height: 100vh;
@@ -29,6 +25,9 @@
             hr {
                 border: dashed 1px grey;
                 width: 100%;
+            }
+            input {
+                width: 30px;
             }
         </style>
     </head>
@@ -54,18 +53,21 @@
                     <tr>
                         <td><label for="day">주</label></td>
                         <td><input type="tel" name="day" id="day" v-model="input.day" /></td>
+                        <td><label for="day">(일)</label></td>
                     </tr>
                     <tr>
                         <td><label for="night">야</label></td>
                         <td>
                             <input type="tel" name="night" id="night" v-model="input.night" />
                         </td>
+                        <td><label for="day">(일)</label></td>
                     </tr>
                     <tr>
                         <td><label for="night1">야1</label></td>
                         <td>
                             <input type="tel" name="night1" id="night1" v-model="input.night1" />
                         </td>
+                        <td><label for="day">(일)</label></td>
                     </tr>
                     <tr>
                         <td><label for="holidayTime">휴일근무시간</label></td>
@@ -77,6 +79,7 @@
                                 v-model="input.holidayTime"
                             />
                         </td>
+                        <td><label for="day">(시간)</label></td>
                     </tr>
                     <!-- <tr>
                         <td><label for="overtime">시간외근로수당</label></td>
@@ -98,27 +101,27 @@
                 <table class="output">
                     <tr>
                         <td>기본급 :&nbsp</td>
-                        <td>{{ output.defaultSal.toLocaleString('ko-KR') }}</td>
+                        <td>{{ output.defaultSal.toLocaleString('ko-KR') }} (원)</td>
                     </tr>
                     <tr>
                         <td>복지포인트 :&nbsp</td>
-                        <td>{{ output.point.toLocaleString('ko-KR') }}</td>
+                        <td>{{ output.point.toLocaleString('ko-KR') }} (원)</td>
                     </tr>
                     <tr>
                         <td>시간외근로수당 :&nbsp</td>
-                        <td>{{ output.overtime.toLocaleString('ko-KR')}}</td>
+                        <td>{{ output.overtime.toLocaleString('ko-KR')}} (원)</td>
                     </tr>
                     <tr>
                         <td>야간수당 :&nbsp</td>
-                        <td>{{ output.night.toLocaleString('ko-KR')}}</td>
+                        <td>{{ output.night.toLocaleString('ko-KR')}} (원)</td>
                     </tr>
                     <tr>
                         <td>휴일수당 :&nbsp</td>
-                        <td>{{ output.holiday.toLocaleString('ko-KR')}}</td>
+                        <td>{{ output.holiday.toLocaleString('ko-KR')}} (원)</td>
                     </tr>
                     <tr>
                         <td>총액 :&nbsp</td>
-                        <td>{{ output.total.toLocaleString('ko-KR') }}</td>
+                        <td>{{ output.total.toLocaleString('ko-KR') }} (원)</td>
                     </tr>
                 </table>
                 <!-- <p>{{ DEFAULT_SAL.toLocaleString('ko-KR') }}</p>
@@ -183,56 +186,6 @@
                             output.value.night +
                             output.value.holiday;
                     });
-                    // watch(input.value, () => {
-                    //     output.value.total =
-                    //         DEFAULT_SAL +
-                    //         POINT +
-                    //         output.value.overtime +
-                    //         output.value.night +
-                    //         output.value.holiday;
-                    // });
-                    // watch(input.value, () => {
-                    //     output.value.total =
-                    //         DEFAULT_SAL +
-                    //         POINT +
-                    //         output.value.overtime +
-                    //         output.value.night +
-                    //         output.value.holiday;
-                    // });
-                    // watch(input.value, () => {
-                    //     output.value.total =
-                    //         DEFAULT_SAL +
-                    //         POINT +
-                    //         output.value.overtime +
-                    //         output.value.night +
-                    //         output.value.holiday;
-                    // });
-                    // watch(input.value, () => {
-                    //     output.value.total =
-                    //         DEFAULT_SAL +
-                    //         POINT +
-                    //         output.value.overtime +
-                    //         output.value.night +
-                    //         output.value.holiday;
-                    // });
-                    // watch(input.value, () => {
-                    //     output.value.total =
-                    //         DEFAULT_SAL +
-                    //         POINT +
-                    //         output.value.overtime +
-                    //         output.value.night +
-                    //         output.value.holiday;
-                    // });
-
-                    // watch(input.value, () => {
-                    //     output.value.total =
-                    //         DEFAULT_SAL +
-                    //         POINT +
-                    //         output.value.overtime +
-                    //         output.value.night +
-                    //         output.value.holiday;
-                    // });
-
                     return { input, output };
                 },
             });
